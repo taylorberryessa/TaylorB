@@ -1,0 +1,252 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Montserrat', 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    color: #3d3d3d;
+    background-color: #faf8f5;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  h1, h2, h3 {
+    font-family: 'Poppins', 'Arial', sans-serif;
+    font-weight: 600;
+    color: #59331d; 
+    letter-spacing: 0.5px;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+    position: relative;
+    padding-bottom: 10px;
+    margin-bottom: 0.8em;
+  }
+  
+  h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: #e67e22; 
+  }
+  
+  p {
+    margin-bottom: 1.2em;
+    font-size: 1rem;
+  }
+  
+  a {
+    color: #d35400; 
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  a:hover {
+    color: #e67e22;
+    text-decoration: underline;
+  }
+  
+  header {
+    padding: 15px 0 30px;
+    background: linear-gradient(to right, #e67e22, #d35400); 
+    color: white;
+    border-radius: 0 0 15px 15px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+    text-align: center;
+  }
+  
+  header a {
+    display: inline-block;
+    color: white;
+    background-color: rgba(89, 51, 29, 0.8); 
+    padding: 8px 15px;
+    margin: 0 10px 20px 0;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+  }
+  
+  header a:hover {
+    background-color: #59331d; 
+    transform: translateY(-2px);
+    text-decoration: none;
+  }
+  
+  nav {
+    background-color: #59331d; 
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+  }
+  
+  nav li {
+    margin: 0;
+  }
+  
+  nav a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 15px 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+  }
+  
+  nav a:hover {
+    background-color: #e67e22; 
+    color: white;
+    text-decoration: none;
+  }
+  
+  section {
+    margin-bottom: 40px;
+    padding: 25px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    position: relative;
+  }
+  
+  section img {
+    border-radius: 8px;
+    margin: 20px 0;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  section img:hover {
+    transform: scale(1.01);
+  }
+  
+  br {
+    display: none;
+  }
+  
+  ul, ol {
+    padding-left: 25px;
+    margin-bottom: 1.5em;
+  }
+  
+  ul li, ol li {
+    margin-bottom: 8px;
+  }
+  
+  li ul, li ol {
+    margin-top: 8px;
+    margin-bottom: 0;
+  }
+  
+  iframe {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+    margin: 15px 0;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 25px;
+    background-color: #59331d; 
+    color: #fff;
+    border-radius: 8px;
+    margin-top: 40px;
+    font-size: 0.9rem;
+  }
+  
+  footer a {
+    color: #ffc195; 
+    font-weight: 500;
+  }
+  
+  footer a:hover {
+    color: #fff;
+  }
+  
+  #weather-comparison-graph {
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 40px;
+  }
+  
+ 
+  .tableauPlaceholder {
+    margin: 20px 0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  #video section {
+    box-shadow: none;
+    padding: 0;
+    margin-bottom: 0;
+  }
+  
+  @media (max-width: 768px) {
+    header {
+      padding: 15px 10px 25px;
+    }
+    
+    header a {
+      margin-bottom: 15px;
+      font-size: 0.8rem;
+      padding: 6px 12px;
+    }
+    
+    nav ul {
+      flex-direction: column;
+    }
+    
+    nav a {
+      text-align: center;
+      padding: 12px 0;
+    }
+    
+    h1 {
+      font-size: 2rem;
+    }
+    
+    h2 {
+      font-size: 1.5rem;
+    }
+    
+
+    iframe {
+      height: 250px;
+    }
+  }
+  
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Poppins:wght@500;600&display=swap');

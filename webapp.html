@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Riddle Adventure</title>
+    <style>
+        /* Base styles and typography - matching scratch.css */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #3d3d3d;
+            background-color: #faf8f5;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Poppins', 'Arial', sans-serif;
+            font-weight: 600;
+            color: #59331d; 
+            letter-spacing: 0.5px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0;
+            color: white;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 10px;
+            margin-bottom: 0.8em;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: #e67e22;
+        }
+        
+        p {
+            margin-bottom: 1.2em;
+            font-size: 1rem;
+        }
+        
+        a {
+            color: #d35400;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        a:hover {
+            color: #e67e22;
+            text-decoration: underline;
+        }
+        
+        /* Header styles */
+        header {
+            padding: 15px 0 30px;
+            background: linear-gradient(to right, #e67e22, #d35400);
+            color: white;
+            border-radius: 0 0 15px 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            text-align: center;
+        }
+        
+        header a {
+            display: inline-block;
+            color: white;
+            background-color: rgba(89, 51, 29, 0.8);
+            padding: 8px 15px;
+            margin: 0 10px 20px 0;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+        
+        header a:hover {
+            background-color: #59331d;
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+        
+        /* Game container */
+        section {
+            margin-bottom: 40px;
+            padding: 25px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+        
+        /* Game specific styles */
+        .story {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        
+        .riddle {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #59331d;
+        }
+        
+        input[type="text"] {
+            padding: 12px;
+            font-size: 16px;
+            width: 100%;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-family: 'Montserrat', 'Segoe UI', sans-serif;
+        }
+        
+        button {
+            padding: 12px 25px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #e67e22;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-family: 'Montserrat', 'Segoe UI', sans-serif;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        button:hover {
+            background-color: #d35400;
+            transform: translateY(-2px);
+        }
+        
+        .feedback {
+            font-size: 18px;
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        
+        .incorrect {
+            color: #d9534f;
+            background-color: rgba(217, 83, 79, 0.1);
+        }
+        
+        .correct {
+            color: #59331d;
+            background-color: rgba(230, 126, 34, 0.1);
+        }
+        
+        /* Footer styles */
+        footer {
+            text-align: center;
+            padding: 25px;
+            background-color: #59331d;
+            color: #fff;
+            border-radius: 8px;
+            margin-top: 40px;
+            font-size: 0.9rem;
+        }
+        
+        footer a {
+            color: #ffc195;
+            font-weight: 500;
+        }
+        
+        footer a:hover {
+            color: #fff;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 10px 25px;
+            }
+            
+            header a {
+                margin-bottom: 15px;
+                font-size: 0.8rem;
+                padding: 6px 12px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .riddle {
+                font-size: 18px;
+            }
+            
+            button {
+                width: 100%;
+            }
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Poppins:wght@500;600&display=swap');
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <a href="index.html">Home Page</a>
+        <a href="scratch.html">St. George</a>
+        <h1>AI-Powered Riddle Adventure</h1>
+    </header>
+
+    <!-- Game Section -->
+    <section>
+        <div class="story">
+            <h2>Welcome to your adventure!</h2>
+            <p>Solve riddles to unlock the story and progress through this interactive challenge. Each correct answer will reveal the next part of your journey. Good luck!</p>
+        </div>
+        
+        <div class="riddle">
+            <p id="riddle">What has keys but can't open locks?</p>
+        </div>
+        
+        <input type="text" id="answer" placeholder="Enter your answer..." />
+        <button onclick="checkAnswer()">Submit Answer</button>
+        
+        <div id="feedback" class="feedback"></div>
+        <div id="nextStep" class="story"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Created for interactive web learning.</p>
+    </footer>
+
+    <script>
+        const riddles = [
+            { 
+                question: "What has keys but can't open locks?", 
+                answer: "piano", 
+                next: "You solved the first riddle! The magical piano plays a tune that seems to open a pathway forward in your mind." 
+            },
+            { 
+                question: "I speak without a mouth and hear without ears. I have no body, but I come alive with wind. What am I?", 
+                answer: "echo", 
+                next: "You unlocked the second clue! The echo of your voice reverberates through the chamber, revealing hidden symbols on the wall." 
+            },
+            { 
+                question: "The more of this there is, the less you see. What is it?", 
+                answer: "darkness", 
+                next: "You're doing great! As you say 'darkness', the room dims and glowing pathways appear on the floor, leading to your final challenge." 
+            },
+            { 
+                question: "I'm tall when I'm young, and I'm short when I'm old. What am I?", 
+                answer: "candle", 
+                next: "Congratulations, you've completed the adventure! The candle's flame illuminates the entire chamber, revealing a treasure of ancient wisdom." 
+            }
+        ];
+
+        let currentRiddle = 0;
+
+        function checkAnswer() {
+            const userAnswer = document.getElementById('answer').value.trim().toLowerCase();
+            const feedbackElement = document.getElementById('feedback');
+            const nextStepElement = document.getElementById('nextStep');
+            const riddleElement = document.getElementById('riddle');
+
+            if (userAnswer === riddles[currentRiddle].answer.toLowerCase()) {
+                feedbackElement.textContent = "Correct! " + riddles[currentRiddle].next;
+                feedbackElement.classList.remove('incorrect');
+                feedbackElement.classList.add('correct');
+                
+                currentRiddle++;
+                
+                if (riddles[currentRiddle]) {
+                    // Show next riddle
+                    setTimeout(() => {
+                        riddleElement.textContent = riddles[currentRiddle].question;
+                        nextStepElement.textContent = "";
+                    }, 1500);
+                } else {
+                    // Adventure complete
+                    nextStepElement.innerHTML = "<h2>Adventure Complete!</h2><p>You've solved all the riddles and completed your journey. Feel free to play again!</p>";
+                    riddleElement.textContent = "All riddles solved!";
+                }
+            } else {
+                feedbackElement.textContent = "Incorrect, try again!";
+                feedbackElement.classList.remove('correct');
+                feedbackElement.classList.add('incorrect');
+            }
+
+            document.getElementById('answer').value = "";
+        }
+    </script>
+</body>
+</html>
